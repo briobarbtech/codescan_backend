@@ -4,7 +4,7 @@ import pandas as pd
     
 def read_csv(file_name):
     data = []
-    with open(f'src/data/{file_name}.csv', mode='r',encoding='utf-8',newline='') as csv_file:
+    with open(f'data/{file_name}.csv', mode='r',encoding='utf-8',newline='') as csv_file:
         csv_file_read = csv.reader(csv_file)
         
         for row in csv_file_read:
@@ -14,7 +14,7 @@ def read_csv(file_name):
 
 def write_csv(file_name,data):
     assistance = read_csv(file_name)
-    with open(f'src/data/{file_name}.csv', mode='w',encoding='utf-8',newline='') as csv_file:
+    with open(f'data/{file_name}.csv', mode='w',encoding='utf-8',newline='') as csv_file:
         csv_file_writer = csv.writer(csv_file)
         fecha_actual = datetime.now().strftime("%d/%m/%Y")
         assistance.append([data,fecha_actual])
@@ -24,8 +24,8 @@ def write_csv(file_name,data):
         
 def convertir_a_excel(dttm):
     # Leer el archivo de entradas y de nombres
-    entrada_csv = "src/data/assistance.csv"
-    estudiantes_csv = "src/data/students.csv"
+    entrada_csv = "data/assistance.csv"
+    estudiantes_csv = "data/students.csv"
 
     df_entradas = pd.read_csv(entrada_csv)
     df_estudiantes = pd.read_csv(estudiantes_csv)

@@ -11,10 +11,11 @@ def all_students():
     students = []
     for row in students_list:
             students.append({
-                "nombre": row[1],
+                "id": row[0],
+                "nombre":row[1],
                 "apellido":row[2],
-                "fecha_de_nacimiento":row[3],
-                "id":row[0]
+                "email":row[3],
+		"telefono":row[4]
                 })
     return jsonify(students)
 
