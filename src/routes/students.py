@@ -11,10 +11,10 @@ def all_students():
     students = []
     for row in students_list:
             students.append({
-                "nombre": row[0],
-                "apellido":row[1],
-                "fecha_de_nacimiento":row[2],
-                "id":row[3]
+                "nombre": row[1],
+                "apellido":row[2],
+                "fecha_de_nacimiento":row[3],
+                "id":row[0]
                 })
     return jsonify(students)
 
@@ -23,12 +23,12 @@ def all_students():
 def get_student(id):
     students_list = read_csv('students')
     for student in students_list:
-        if student[3] == id:
-            return jsonify({
-                "nombre": student[0],
-                "apellido":student[1],
-                "fecha_de_nacimiento":student[2],
-                "id":student[3]
+        if student[0] == id:
+            return jsonify({"id":student[0],
+                "nombre": student[1],
+                "apellido":student[2],
+                "email":student[3],
+                "telefono":student[4]
                 })
     return "Not found"
 

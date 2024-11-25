@@ -30,33 +30,23 @@ def convertir_a_excel(dttm):
     df_entradas = pd.read_csv(entrada_csv)
     df_estudiantes = pd.read_csv(estudiantes_csv)
 
-    # Asegurar que las fechas sean de tipo datetime
-    df_entradas['fecha'] = pd.to_datetime(df_entradas['fecha'])
+    # Eliminar duplicados en asistencias
+    df_entradas = df_entradas.drop_duplicates()
+
+    # Generar una tabla pivote para asistencias
+    pivot_asistencias = df_entradas.pivot_table(
+        index="id_estudiante", columns="fecha", aggfunc="size", fill_value=0
+    ).reset_index()
+
+    # Convertir valores de asistencia a "Presente"
+    pivot_asistencias = pivot_asistencias.replace({1: "Presente", 0: "Asusente"})
+    pivot_asistencias = pivot_asistencias.replace({0: "Ausente"})
+    # Combinar con los datos de estudiantes
+    resultado = pd.merge(df_estudiantes, pivot_asistencias, on="id_estudiante", how="left")
+
+    # Exportar a Excel
+    resultado.to_excel(f"excel/asistencia_estudiantes_{dttm}.xlsx", index=False)
+
+    print(f"Archivo Excel generado: asistencia_estudiantes_{dttm}.xlsx")
 
     
-    # Unir las entradas con los nombres de los estudiantes
-    df_combinado = pd.merge(df_entradas, df_estudiantes, on='id_estudiante')
-    if 'fecha_de_nacimiento' in df_combinado.columns:
-        df_combinado = df_combinado.drop(columns=['fecha_de_nacimiento'])
-    # Crear la tabla pivote
-    pivot_df = df_combinado.pivot_table(
-        index=['id_estudiante', 'nombre','apellido'],  # Incluir nombre como parte del índice
-        columns='fecha',
-        aggfunc=lambda x: 'Presente',
-        fill_value='Ausente'
-    )
-
-    # Aplanar las columnas de MultiIndex a un simple Index
-    pivot_df.columns = pivot_df.columns.get_level_values(0)
-
-    # Formatear las columnas de fechas
-    pivot_df.columns = [col.strftime('%Y-%m-%d') if isinstance(col, pd.Timestamp) else col for col in pivot_df.columns]
-
-    # Resetear el índice para que `id_estudiante` y `nombre` sean columnas normales
-    pivot_df = pivot_df.reset_index()
-
-    # Guardar como archivo Excel
-    excel_file = f"excel/asistencia_estudiantes_{dttm}.xlsx"
-    pivot_df.to_excel(excel_file, index=False)
-
-    print(f"Archivo Excel generado: {excel_file}")
