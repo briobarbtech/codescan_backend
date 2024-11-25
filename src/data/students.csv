@@ -1,16 +1,26 @@
-nombre,apellido,fecha_de_nacimiento,id_estudiante
-Juan,Pérez,1990-05-15,1
-María,González,1988-07-22,2
-Carlos,Rodríguez,1995-11-03,3
-Lucía,Fernández,2001-03-14,4
-Pedro,López,1985-12-25,5
-Ana,Martínez,1992-08-09,6
-Jorge,Sánchez,1998-04-17,7
-Sofía,García,1993-10-28,8
-Daniel,Ramos,1987-06-05,9
-Isabella,Herrera,2000-02-20,10
-Luis,Morales,1991-09-13,11
-Camila,Ortiz,1996-01-30,12
-Mateo,Díaz,1999-07-08,13
-Valeria,Ruiz,2003-05-01,14
-Andrés,Mendoza,1989-12-10,15
+id_estudiante,nombre,apellido,email,telefono
+2,Caram Melica,Juan Pablo,juanpablocarammelica@gmail.com,2622608135
+3,Rodriguez ,Santino Benjamín  ,mucintunuyan@gmail.com,2622581988
+4,Graneros Morales ,David leon,josecristiangra03@gmail.com,2622401349
+5,Rodriguez ,Benicio Santiago ,mucingtunuyan@gmail.com,2622248624
+6,Salinas ,Alma Mia,siardinachechu@gmail.com,2622680410
+7,Kaufmann,Bruno,flavio.kaufmann@gmail.com,2622609789
+8,Bustos Orellana ,Francisco Xavier ,orellanacecilia5316@gmail.com,2622367946
+9,Godoy,Francisco Nicolas,adririvas5050@gmail.com,2622449956
+10,FERRER ,Eleonora,jessimontenegro48@hotmail.com,2622549350
+11,Soria Bordón ,Lisandro,mellizos2013luci@gmail.com,2622579199
+12,Soria Bordon ,Santino,mellizos2013luci@gmail.com,2622579199
+13,Iramas,Benjamin,bahamondepsico@gmail.com,2622409331
+14,Mendez,Bianca,ne9546062@gmail.com,3878319904
+15,Balastegui,Inti,printboximpresiones@gmail.com,2622662878
+16,Rubio Gallardo ,Amadeo,clandreagal@gmail.com,2622542812
+17,Bustamante ,Antonella ,anto.bstte@gmail.com,2622343225
+18,Gomez de ferrari,Ramiro,Regideferrari@gmail.com,2604539029
+19,Kaufmann,Gabriel,flavio.kaufmann@gmail.com,2622609789
+20,grande,Ciro,,
+21,lemos,Santino,,2622367147
+22,Limole ,Dante,romeroparraangela@gmail.com,2615750623
+23,Azzam,Ana,,
+24,Fiala ,Elias,,
+25,Olivera Diaz,Joaquin,,
+26,Lazaro,Lisandro,,
